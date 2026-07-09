@@ -6,8 +6,5 @@
   "d1_databases": [
     { "binding": "DB", "database_name": "grand-migration-db", "database_id": "e30cf9fd-09fa-4607-b968-3265dd6f9f68" }
   ],
-  "routes": [
-    { "pattern": "migration.defimagic.io", "custom_domain": true }
-  ],
   "observability": { "enabled": true }
 }
