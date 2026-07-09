@@ -1,0 +1,13 @@
+{
+  "name": "grand-migration",
+  "main": "worker/index.mjs",
+  "compatibility_date": "2026-07-01",
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "grand-migration-db", "database_id": "e30cf9fd-09fa-4607-b968-3265dd6f9f68" }
+  ],
+  "routes": [
+    { "pattern": "migration.defimagic.io", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}

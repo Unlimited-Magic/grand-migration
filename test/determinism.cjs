@@ -1,6 +1,6 @@
 // Headless proof the engine is the server:
 // same inputs -> identical results, twice, plus sanity checks.
-const E = require("../js/engine.js");
+const E = require("../public/js/engine.js");
 
 const DAY = "2026-07-09";
 const USERS = ["Gregory, Destroyer of Worlds", "Sir Quacksalot", "  spaced   name  "];
