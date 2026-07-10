@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community Divisions — The Grand Migration</title>
+<meta name="description" content="Two communities, ten racers each, one deterministic river. Team-vs-team racing for congregations, clubs and crews — free, no account, same result for everyone.">
+<meta property="og:title" content="Community Divisions — The Grand Migration">
+<meta property="og:description" content="Team-vs-team racing for your community. Points, standings, and a giving tie-in through ShopToDoGood.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="community.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">COMMUNITY <em>DIVISIONS</em></div>
+    <div class="subhead">Team racing for congregations, clubs & crews — same river, same day, same result for everyone who checks.</div>
+    <div class="navRow">
+      <a href="#" class="on">Team Race</a>
+      <a href="crypto.html">The Collectible Concept</a>
+      <a href="../index.html">Main game</a>
+    </div>
+  </header>
+
+  <!-- SETUP -->
+  <section id="setup" class="panel">
+    <h2>Set your rosters</h2>
+    <div class="teamNameRow">
+      <span class="teamDot teamA-dot"></span>
+      <input id="teamAName" maxlength="40" placeholder="Team A name">
+    </div>
+    <div class="teamNameRow">
+      <span class="teamDot teamB-dot"></span>
+      <input id="teamBName" maxlength="40" placeholder="Team B name">
+    </div>
+
+    <div class="rosterCols">
+      <div class="rosterCol">
+        <div class="colHead"><span class="teamDot teamA-dot"></span> Team A · 10 racers</div>
+        <div id="rosterA"></div>
+        <div class="sampleRow">
+          <button id="sampleA" type="button">Fill sample roster</button>
+          <button id="randomA" type="button">🎲 Randomize</button>
+        </div>
+      </div>
+      <div class="rosterCol">
+        <div class="colHead"><span class="teamDot teamB-dot"></span> Team B · 10 racers</div>
+        <div id="rosterB"></div>
+        <div class="sampleRow">
+          <button id="sampleB" type="button">Fill sample roster</button>
+          <button id="randomB" type="button">🎲 Randomize</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="raceBtn" class="teamRaceBtn" type="button">🐤 TEAM RACE</button>
+    <div class="setupNote" id="heatTag"></div>
+    <div class="setupNote">Only your named racers take the water — no filler field, a clean head-to-head. Team score is the sum of every member's points.</div>
+  </section>
+
+  <!-- RACE -->
+  <section id="raceC" class="panel hidden">
+    <div id="raceCTop"><span id="raceCHeat"></span></div>
+    <canvas id="raceCanvas"></canvas>
+    <div id="raceCBottom">
+      <div id="raceCTicker">🎙 They're in the water…</div>
+      <button id="skipCBtn" type="button">Skip ⏭</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="resultsC" class="hidden">
+    <div class="panel">
+      <div id="resultsCHeat" class="setupNote"></div>
+      <div id="winnerBanner"></div>
+      <div class="mvpRow" id="mvpRow"></div>
+      <div id="shareRow" style="display:flex;gap:8px;margin-top:16px;">
+        <button id="copyCBtn" type="button" style="flex:1;padding:12px 6px;border-radius:10px;border:1px solid #204866;background:var(--panel2);color:var(--ink);font-weight:700;font-size:13.5px;cursor:pointer;">Copy result</button>
+        <button id="cardCBtn" type="button" style="flex:1;padding:12px 6px;border-radius:10px;border:0;background:var(--accent);color:#0a1520;font-weight:700;font-size:13.5px;cursor:pointer;">Save card</button>
+      </div>
+      <div class="againRow" style="display:flex;gap:8px;margin-top:12px;">
+        <button id="rewatchBtn" type="button" style="flex:1;background:var(--panel2);color:var(--ink);border:1px solid #204866;border-radius:10px;padding:11px;cursor:pointer;font-size:13.5px;">Rewatch heat</button>
+        <button id="editBtn" type="button" style="flex:1;background:var(--panel2);color:var(--ink);border:1px solid #204866;border-radius:10px;padding:11px;cursor:pointer;font-size:13.5px;">Edit rosters</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Full standings</h3>
+      <div class="legendRow" id="legendRow"></div>
+      <table class="miniTable">
+        <thead><tr><th>pos</th><th>racer</th><th>time</th><th>pts</th></tr></thead>
+        <tbody id="standingsBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SHOPTODOGOOD TIE-IN -->
+  <section class="panel">
+    <h2>🎗️ Give, and your racer feels it</h2>
+    <div class="pullQuote">Giving through shoptodogood.com feeds your racer — donations unlock liveries and point multipliers. Your community gets its own division, standings in your newsletter.</div>
+    <p class="dim">Every gift a member makes through ShopToDoGood is credited to their racer. Liveries are cosmetic and permanent once earned; multipliers apply to that racer's points in team totals like the ones above. Nothing here touches the fairness of the race itself — the river doesn't know who gave. It only changes what your duck is wearing, and how much a finish is worth to the team score.</p>
+
+    <div class="liveryGrid">
+      <div class="liveryCard">
+        <canvas id="liveryBronze" width="56" height="56"></canvas>
+        <div class="tierName">Bronze Beak</div>
+        <div class="tierReq">Any gift this season</div>
+      </div>
+      <div class="liveryCard">
+        <canvas id="liverySilver" width="56" height="56"></canvas>
+        <div class="tierName">Silver Beak</div>
+        <div class="tierReq">$50+ or 3 gifts · +5% points</div>
+      </div>
+      <div class="liveryCard">
+        <canvas id="liveryGold" width="56" height="56"></canvas>
+        <div class="tierName">Golden Beak</div>
+        <div class="tierReq">Top donor tier · +10% points</div>
+      </div>
+    </div>
+
+    <button id="giveBtn" class="previewBtn" type="button">Unlock liveries via giving — Preview, payments arm at launch</button>
+    <a class="crossLink" href="crypto.html">→ Curious what a permanent, collectible racer looks like? Read the concept.</a>
+  </section>
+
+  <section class="panel">
+    <h3>How the fairness holds up</h3>
+    <p class="dim">Same as the main game: today's river is generated from the date alone, and every racer's run is computed purely from that river plus their name. Nothing about a team, a donation tier, or who's watching changes the current. Anyone on your roster can be checked independently — type the name, get the same run, every time.</p>
+  </section>
+
+  <footer>
+    Free to race, every day. No account. No gambling — entry is free everywhere, always, and prizes are points and glory.<br>
+    © 2026 defimagic · The Grand Migration, Community Divisions
+  </footer>
+
+</div>
+<div id="toast" role="status"></div>
+<script src="../js/engine.js"></script>
+<script src="community.js"></script>
+</body>
+</html>

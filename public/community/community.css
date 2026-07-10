@@ -1,0 +1,115 @@
+/* COMMUNITY DIVISIONS — overrides on top of ../css/style.css */
+:root {
+  --teamA: #ffd447;
+  --teamB: #5fd3c4;
+}
+
+.subhead { color: var(--dim); font-size: 13.5px; line-height: 1.55; text-align: center; margin-top: -4px; }
+.navRow { display: flex; justify-content: center; gap: 10px; margin-top: 10px; font-size: 12.5px; }
+.navRow a { color: var(--dim); text-decoration: none; border: 1px solid #1d3a4f; border-radius: 14px; padding: 5px 12px; }
+.navRow a.on { color: #0a1520; background: var(--accent); border-color: var(--accent); font-weight: 700; }
+
+.panel h2 { font-size: 15.5px; letter-spacing: 0.5px; margin-bottom: 8px; }
+.panel h3 { font-size: 13.5px; letter-spacing: 0.5px; margin-bottom: 8px; color: var(--dim); text-transform: uppercase; }
+
+.teamNameRow { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.teamNameRow:first-child { margin-top: 0; }
+.teamDot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.teamDot.teamA-dot { background: var(--teamA); }
+.teamDot.teamB-dot { background: var(--teamB); }
+.teamNameRow input {
+  flex: 1; background: var(--panel2); border: 1px solid #204866; color: var(--ink);
+  border-radius: 10px; padding: 11px 12px; font-size: 15px; font-weight: 700;
+}
+
+.rosterCols { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 16px; }
+@media (min-width: 560px) { .rosterCols { grid-template-columns: 1fr 1fr; } }
+.rosterCol .colHead { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.rosterCol input.rosterSlot {
+  width: 100%; background: var(--panel2); border: 1px solid #204866; color: var(--ink);
+  border-radius: 8px; padding: 9px 10px; font-size: 13.5px; margin-bottom: 6px;
+}
+.rosterCol input.rosterSlot::placeholder { color: #56718a; }
+
+.sampleRow { display: flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+.sampleRow button {
+  background: var(--panel2); color: var(--ink); border: 1px solid #204866; border-radius: 8px;
+  padding: 7px 10px; font-size: 12px; cursor: pointer;
+}
+
+.teamRaceBtn {
+  width: 100%; background: var(--accent); color: #0a1520; border: 0; border-radius: 10px;
+  padding: 14px; font-weight: 800; font-size: 15px; cursor: pointer; margin-top: 16px;
+}
+.setupNote { color: var(--dim); font-size: 12px; text-align: center; margin-top: 8px; }
+
+#raceC { padding: 10px; }
+#raceCTop { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--dim); padding: 4px 4px 10px; }
+#raceCanvas { display: block; border-radius: 10px; width: 100%; }
+#raceCBottom { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-top: 10px; }
+#raceCTicker { flex: 1; font-size: 13px; color: var(--ink); opacity: 0.9; min-height: 18px; }
+#raceCBottom button { background: var(--panel2); color: var(--ink); border: 1px solid #204866; border-radius: 8px; padding: 8px 12px; font-size: 13px; cursor: pointer; }
+
+.winnerBanner { text-align: center; font-size: 20px; font-weight: 800; margin-top: 4px; }
+.scoreLine { text-align: center; font-size: 40px; font-weight: 800; margin-top: 4px; }
+.vsLine { text-align: center; color: var(--dim); font-size: 12.5px; margin-top: 2px; }
+
+.mvpRow { display: flex; gap: 10px; margin-top: 16px; }
+.mvpCard { flex: 1; background: var(--panel2); border-radius: 10px; padding: 10px 12px; }
+.mvpCard .mvpTeam { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; }
+.mvpCard .mvpName { font-weight: 700; font-size: 14px; margin-top: 2px; }
+.mvpCard .mvpStat { font-size: 12px; color: var(--dim); margin-top: 2px; }
+
+.legendRow { display: flex; justify-content: center; gap: 18px; font-size: 12.5px; color: var(--dim); margin-top: 10px; }
+.legendRow span { display: inline-flex; align-items: center; gap: 6px; }
+.legendRow i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+.standTeam { display: inline-flex; align-items: center; gap: 6px; }
+.standTeam i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+
+.liveryGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+.liveryCard { background: var(--panel2); border-radius: 10px; padding: 10px 6px; text-align: center; }
+.liveryCard canvas { display: block; margin: 0 auto 6px; }
+.liveryCard .tierName { font-weight: 700; font-size: 12px; }
+.liveryCard .tierReq { color: var(--dim); font-size: 10.5px; margin-top: 2px; line-height: 1.4; }
+
+.pullQuote { border-left: 3px solid var(--accent); padding-left: 12px; margin: 12px 0; color: var(--ink); font-size: 14px; line-height: 1.55; }
+
+.previewBtn {
+  width: 100%; background: var(--panel2); color: var(--dim); border: 1px dashed #33546e;
+  border-radius: 10px; padding: 12px; font-weight: 700; font-size: 13px; cursor: pointer; margin-top: 10px;
+}
+
+.crossLink { display: block; text-align: center; margin-top: 14px; color: var(--accent); text-decoration: none; font-weight: 700; font-size: 13.5px; }
+
+.giveList { color: var(--dim); font-size: 13.5px; line-height: 1.7; margin-top: 10px; padding-left: 18px; }
+.giveList li b { color: var(--ink); }
+
+/* crypto.html */
+.stepList { counter-reset: step; margin-top: 10px; }
+.stepList li { list-style: none; display: flex; gap: 12px; margin-top: 12px; }
+.stepList li::before { counter-increment: step; content: counter(step); flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #0a1520; font-weight: 800; font-size: 12.5px; display: flex; align-items: center; justify-content: center; }
+.stepList b { color: var(--ink); }
+.stepList span { color: var(--dim); font-size: 13.5px; line-height: 1.5; }
+
+.mintForm { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.mintForm input, .mintForm select {
+  background: var(--panel2); border: 1px solid #204866; color: var(--ink);
+  border-radius: 10px; padding: 11px 12px; font-size: 14px;
+}
+
+.tokenCard { margin-top: 12px; background: linear-gradient(160deg, #14304a, #0c1e30); border: 1px solid #26567a; border-radius: 12px; padding: 16px; }
+.tokenTop { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
+.tokenName { font-size: 20px; font-weight: 800; margin-top: 8px; }
+.tokenSub { color: var(--dim); font-size: 12px; margin-top: 4px; }
+.tokenNote { color: #56718a; font-size: 11px; margin-top: 10px; border-top: 1px dashed #26567a; padding-top: 8px; }
+
+.trophyRow { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.trophyBadge { flex: 1; min-width: 120px; background: var(--panel2); border-radius: 10px; padding: 10px; text-align: center; }
+.trophyBadge .tIcon { font-size: 22px; }
+.trophyBadge .tName { font-weight: 700; font-size: 12px; margin-top: 4px; }
+.trophyBadge .tTag { color: var(--dim); font-size: 10.5px; margin-top: 2px; }
+
+.honestyBlock { border: 1px solid #33546e; border-radius: 12px; padding: 14px 16px; margin-top: 12px; background: var(--panel2); }
+.honestyBlock ul { padding-left: 18px; line-height: 1.7; font-size: 13.5px; color: var(--dim); }
+.honestyBlock li b { color: var(--ink); }

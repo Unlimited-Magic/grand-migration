@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Collectible Concept — The Grand Migration</title>
+<meta name="description" content="A collectible that races every day, forever. Provably fair: every race is recomputed from the name alone — no oracle, no server trust. Concept explainer, mint mockup, no chain code.">
+<meta property="og:title" content="The Collectible Concept — The Grand Migration">
+<meta property="og:description" content="A collectible that races every day, forever. No wagering, no yield — identity only.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="community.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">THE <em>COLLECTIBLE</em> CONCEPT</div>
+    <div class="subhead">A collectible that races every day, forever. Provably fair: every race is recomputed from the name alone — no oracle, no server trust.</div>
+    <div class="navRow">
+      <a href="index.html">Community Divisions</a>
+      <a href="#" class="on">Collectible Concept</a>
+      <a href="../index.html">Main game</a>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h2>Why this is different from a normal collectible</h2>
+    <p class="dim">Most collectibles are a picture with a receipt. This one races — today, tomorrow, and every day after, against whatever the day's river throws at it. The result isn't stored by a company and served back to you. It's computed, fresh, from two public inputs: the date, and the name.</p>
+    <ol class="stepList">
+      <li><b>Name locked at mint.</b><span>Whatever name goes in becomes the racer's identity, permanently. That's the entire "token" — a name and a mint date.</span></li>
+      <li><b>Every day, a new river.</b><span>The engine deterministically regenerates the day's current from the date alone — same seed, same river, everywhere on Earth.</span></li>
+      <li><b>Anyone can recompute it.</b><span>Feed the same date and name into the same open engine and you get the same finish, every time. No database to trust, no oracle, no "our servers say so."</span></li>
+    </ol>
+  </section>
+
+  <section class="panel">
+    <h3>Try it — the permanent record</h3>
+    <p class="dim">Type any name and pull its last 7 days of finishes, computed live in your browser against the standard 400-racer field. This is the same computation the "collectible" concept above is built on — nothing here is precomputed or fetched from a server.</p>
+    <div class="mintForm">
+      <input id="recordName" maxlength="28" placeholder="Racer name…">
+      <button id="recordBtn" type="button" class="teamRaceBtn" style="margin-top:0;">Compute permanent record</button>
+    </div>
+    <div id="recordResult" class="hidden" style="margin-top:12px;"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Mint preview</h2>
+    <p class="dim">This is a visual mockup of what a mint confirmation could look like. There is no wallet connection, no chain call, and nothing here moves funds — it just previews the token card your name and tier would produce.</p>
+    <div class="mintForm">
+      <input id="mintName" maxlength="28" placeholder="Racer name to mint…">
+      <select id="mintTier">
+        <option>Standard Edition</option>
+        <option>Founder Edition</option>
+      </select>
+      <button id="mintBtn" type="button" class="previewBtn">Preview — payments arm at launch</button>
+    </div>
+    <div id="mintPreview" class="hidden"></div>
+  </section>
+
+  <section class="panel">
+    <h2>🏵️ Soulbound trophies</h2>
+    <p class="dim">Milestones — a podium finish, a season MVP, a hundred races sailed — mint as soulbound trophies bound permanently to the racer's identity. They can't be sold, traded, or transferred to another name. They exist to say "this racer did this," not to be flipped.</p>
+    <div class="trophyRow">
+      <div class="trophyBadge"><div class="tIcon">🥇</div><div class="tName">Podium Finish</div><div class="tTag">top 3 in a heat</div></div>
+      <div class="trophyBadge"><div class="tIcon">🌊</div><div class="tName">Water Worked</div><div class="tTag">longest line, top half</div></div>
+      <div class="trophyBadge"><div class="tIcon">💯</div><div class="tName">100 Races Sailed</div><div class="tTag">career milestone</div></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>What this is not</h2>
+    <div class="honestyBlock">
+      <ul>
+        <li><b>No wagering.</b> You cannot bet against another racer or the field.</li>
+        <li><b>No yield.</b> Holding a racer pays no interest, dividends, or staking rewards.</li>
+        <li><b>No floor price promises.</b> Nothing here is priced, listed, or guaranteed to be worth anything.</li>
+        <li><b>Identity only.</b> This is a permanent, checkable record of a name's racing history — not a financial instrument.</li>
+      </ul>
+    </div>
+  </section>
+
+  <a class="crossLink" href="index.html">← Back to Community Divisions</a>
+
+  <footer>
+    Concept preview. No purchase, no chain interaction, no account required to read this page.<br>
+    © 2026 defimagic · The Grand Migration
+  </footer>
+
+</div>
+<div id="toast" role="status"></div>
+<script src="../js/engine.js"></script>
+<script src="crypto.js"></script>
+</body>
+</html>

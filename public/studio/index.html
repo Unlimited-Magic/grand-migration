@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Studio — dress your racer | The Grand Migration</title>
+<meta name="description" content="Dress your duck or capybara: hats, shades, chains, trails and a victory taunt. See it race a private 9-boat heat, then preview your result card.">
+<meta property="og:title" content="The Studio">
+<meta property="og:description" content="Dress your racer. Same deterministic river, new drip.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎩</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="studio.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">THE <em>STUDIO</em></div>
+    <div class="tagLine">Dress your racer. Same river, new drip.</div>
+  </header>
+
+  <!-- WARDROBE -->
+  <section id="wardrobeView">
+
+    <div class="panel" id="previewPanel">
+      <div class="division">
+        <button id="baseDuckBtn" type="button">🦆 Duck</button>
+        <button id="baseCapyBtn" type="button">🍊 Capybara</button>
+      </div>
+      <div id="baseLabel" class="baseLabel"></div>
+      <canvas id="previewCanvas" width="360" height="200"></canvas>
+      <div id="progressStrip" class="progressStrip"></div>
+    </div>
+
+    <div class="panel">
+      <div class="division" id="catTabs"></div>
+      <div id="wardrobeGrid" class="itemGrid"></div>
+    </div>
+
+    <div class="panel seasonPass">
+      <h3>🎟️ SEASON PASS — $9.99</h3>
+      <p class="dim">Every premium hat, lens, chain, scarf &amp; trail — unlocked forever, one purchase. Free items still earn by racing.</p>
+      <button id="seasonPassBtn" class="wideBtn" type="button">Preview — payments arm at launch</button>
+    </div>
+
+    <div class="panel">
+      <h3>🏁 See it race</h3>
+      <p class="dim">Your dressed racer runs a private heat against 8 rivals — the exact same deterministic engine as the main league. Same name, same day, same result, anywhere.</p>
+      <input id="racerNameInput" maxlength="28" placeholder="Name your racer…" aria-label="Racer name">
+      <button id="seeRaceBtn" class="wideBtn" type="button">See it race →</button>
+    </div>
+
+  </section>
+
+  <!-- RACE -->
+  <section id="raceView" class="panel hidden">
+    <div id="raceTop2"><span id="raceHeat"></span><span id="livePos2"></span></div>
+    <canvas id="raceCanvas"></canvas>
+    <div id="raceBottom2">
+      <div id="raceTicker">🎙 They're in the water…</div>
+      <button id="skipRaceBtn" type="button">Skip ⏭</button>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="resultView" class="hidden">
+    <div class="panel">
+      <div id="resultHeat2" class="dimHeat"></div>
+      <div id="resultSummary"></div>
+      <div id="tauntQuote" class="tauntQuote"></div>
+    </div>
+    <div class="panel">
+      <h3>Result card preview</h3>
+      <div class="cardWrap"><canvas id="resultCanvas" width="1200" height="630"></canvas></div>
+      <div id="raceAgainNote" class="fieldNote"></div>
+      <div class="againRow">
+        <button id="raceAgainBtn" type="button">Race again</button>
+        <button id="saveCardBtn" type="button">Save card</button>
+        <button id="backWardrobeBtn" type="button">Back to wardrobe</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Free to dress, free to race. Premium items and the Season Pass are previews — payments arm at launch.<br>
+    <a href="#" id="resetProgressLink">Reset studio progress</a> · <a href="../index.html">← The Grand Migration</a><br>
+    © 2026 defimagic · The Studio
+  </footer>
+
+</div>
+<div id="toast" role="status"></div>
+<script src="../js/engine.js"></script>
+<script src="sprites.js"></script>
+<script src="studio.js"></script>
+</body>
+</html>

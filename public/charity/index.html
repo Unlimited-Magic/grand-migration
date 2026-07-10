@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fundraiser Generator — turn your donor list into a live duck race</title>
+<meta name="description" content="Paste your donor names, pick your brand color, generate a live duck race and a result card for every donor. Free demo — we never touch your donation money.">
+<meta property="og:title" content="Fundraiser Generator — The Grand Migration">
+<meta property="og:description" content="Self-serve virtual duck race for your cause. Your branding, your donors, your payment rail. We just run the race.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦆</text></svg>">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="charity.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">FUNDRAISER <em>GENERATOR</em></div>
+    <div id="divisionTag">Paste your donor list. Get a branded, live duck race in under a minute.</div>
+  </header>
+
+  <details class="how" id="howDetails" open>
+    <summary>How the money works (read this first)</summary>
+    <p>Donations happen on <b>your</b> page, your permit, your payment rail — we never touch entry money, ever. What you get from us is the race, the show, and a result card for every donor, generated free right here in your browser.</p>
+    <p>Races are deterministic: the same date plus the same donor list always produces the same finish order, on any device. That's not a bug — it's the whole trick. Anyone can re-run your race and check it.</p>
+  </details>
+
+  <!-- SETUP -->
+  <section id="setup" class="panel">
+    <h2 class="panelTitle">Build your race</h2>
+    <form id="setupForm" autocomplete="off">
+      <label class="fLabel" for="orgName">Organization name</label>
+      <input id="orgName" class="fInput" maxlength="60" placeholder="Riverside Animal Shelter" required>
+
+      <label class="fLabel" for="causeLine">Cause line</label>
+      <input id="causeLine" class="fInput" maxlength="90" placeholder="Every duck adopted feeds a rescue dog for a week">
+
+      <div class="fRow">
+        <div class="fCol">
+          <label class="fLabel" for="brandColor">Brand color</label>
+          <div class="colorRow">
+            <input id="brandColor" type="color" value="#ffd447">
+            <div class="swatches" id="swatches"></div>
+          </div>
+        </div>
+        <div class="fCol">
+          <label class="fLabel" for="goalAmount">Fundraising goal</label>
+          <input id="goalAmount" class="fInput" type="number" min="0" step="1" placeholder="10000">
+        </div>
+      </div>
+
+      <label class="fLabel">Preview as</label>
+      <div class="division" id="tierToggle">
+        <button id="tierFree" type="button" class="on">FREE</button>
+        <button id="tierEvent" type="button">$199 EVENT</button>
+      </div>
+      <div id="tierNote" class="fieldNote"></div>
+
+      <label class="fLabel" for="donorText">Donor names — one per line (or comma-separated)</label>
+      <textarea id="donorText" class="fTextarea" rows="6" placeholder="Alex Johnson&#10;The Martinez Family&#10;Riverside Dental&#10;..."></textarea>
+      <div class="fRow" style="margin-top:8px;">
+        <button id="loadSampleBtn" type="button" class="ghostBtn">Load sample donors (60)</button>
+        <div id="donorCount" class="donorCount">0 donors</div>
+      </div>
+
+      <button type="submit" class="wideBtn bigGen" id="generateBtn">GENERATE MY RACE →</button>
+    </form>
+  </section>
+
+  <!-- PREVIEW -->
+  <section id="previewWrap" class="hidden">
+    <div id="brandedScope">
+      <section id="preview" class="panel">
+        <div id="previewHeader">
+          <div id="pOrgName"></div>
+          <div id="pCauseLine"></div>
+          <div id="pGoalWrap">
+            <div class="goalBar"><div id="pGoalFill" class="goalFill"></div></div>
+            <div id="pGoalLabel" class="dim"></div>
+          </div>
+        </div>
+
+        <div id="raceTop2">
+          <span id="raceInfo"></span>
+          <span id="raceClock2">0s</span>
+        </div>
+        <canvas id="raceCanvas"></canvas>
+        <div id="raceBottom2">
+          <div id="ticker2">🎙 Ducks entering the water…</div>
+          <button id="speedBtn2" type="button">▶ 24×</button>
+          <button id="skipBtn2" type="button">Skip ⏭</button>
+        </div>
+        <div id="liveLeaders"></div>
+        <div id="tierBadge"></div>
+      </section>
+
+      <section id="resultsSection" class="hidden">
+        <div class="panel">
+          <h3 id="resultsTitle"></h3>
+          <table class="miniTable"><thead><tr><th>#</th><th>Donor</th><th>Time</th><th>Sailed</th></tr></thead>
+            <tbody id="donorTable"></tbody>
+          </table>
+          <div id="overflowNote" class="fieldNote hidden"></div>
+        </div>
+
+        <div class="panel">
+          <h3>Sample donor card</h3>
+          <p class="dim">Every donor gets a card like this — proof they raced, branded for you.</p>
+          <label class="fLabel" for="cardDonorSelect">Preview for</label>
+          <select id="cardDonorSelect" class="fInput"></select>
+          <canvas id="cardCanvas" width="1200" height="630"></canvas>
+          <button id="downloadCardBtn" class="wideBtn" type="button">Download this card (PNG)</button>
+        </div>
+
+        <div class="panel" id="packPanel">
+          <h3>Card pack — every donor, one click</h3>
+          <p class="dim">Bundles a branded card for every donor on your list into one download, ready to email out the morning after the race.</p>
+          <button id="packBtn" class="wideBtn ghostGold" type="button">Download full card pack — Preview, payments arm at launch</button>
+        </div>
+
+        <div class="panel" style="text-align:center;">
+          <button id="rebuildBtn" class="wideBtn" type="button">Build another race</button>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="panel" id="pricingPanel">
+    <h3>Pricing</h3>
+    <div class="pricingGrid">
+      <div class="tierCard">
+        <div class="tierName">FREE</div>
+        <div class="tierPrice">$0</div>
+        <ul class="tierList">
+          <li>Up to 50 donor ducks</li>
+          <li>Live race + full results</li>
+          <li>Grand Migration branding shown</li>
+          <li>One sample donor card</li>
+        </ul>
+        <button id="freeCTA" class="wideBtn" type="button">Start free above ↑</button>
+      </div>
+      <div class="tierCard highlight">
+        <div class="tierName">EVENT</div>
+        <div class="tierPrice">$199 <span>/ event</span></div>
+        <ul class="tierList">
+          <li>Unlimited donor ducks</li>
+          <li>Your branding only — no watermark</li>
+          <li>Full card pack, every donor</li>
+          <li>Priority support day-of</li>
+        </ul>
+        <button id="eventCTA" class="wideBtn ghostGold" type="button">Preview — payments arm at launch</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="panel" id="contactPanel">
+    <h3>🌊 Running a real fundraiser?</h3>
+    <p class="dim">This page is a live demo of the product. Tell us about your event — org, date, expected donor count — and we'll set up your branded race.</p>
+    <a id="contactLink" class="wideBtn contactBtn" href="mailto:dan.cohen@defimagic.io?subject=Fundraiser%20Generator%20—%20interested">Email dan.cohen@defimagic.io</a>
+  </section>
+
+  <footer>
+    Demo tool — races run entirely in your browser, nothing is uploaded or stored.<br>
+    © 2026 defimagic · The Grand Migration, Fundraiser Generator
+  </footer>
+
+</div>
+<div id="toast" role="status"></div>
+<script src="/js/engine.js"></script>
+<script src="charity.js"></script>
+</body>
+</html>

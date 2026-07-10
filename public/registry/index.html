@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Registry — Grand Migration racer deeds</title>
+<meta name="description" content="Every racer name already has a computed career in The Grand Migration. Look one up, see its deed, and claim it forever.">
+<meta property="og:title" content="The Registry — Grand Migration">
+<meta property="og:description" content="Every name already has a career on the river. Come see yours, and own it forever.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">THE <em>REGISTRY</em></div>
+    <div class="tagline">Every name already has a career on the river. Come see yours.</div>
+  </header>
+
+  <section class="panel" id="searchPanel">
+    <form id="searchForm" autocomplete="off">
+      <input id="nameInput" maxlength="28" placeholder="Look up a racer name…" aria-label="Racer name">
+      <button type="submit">FIND DEED</button>
+    </form>
+    <p class="fieldNote">Any name — raced today or never raced at all — already has a full computed career. The river doesn't wait for you to show up.</p>
+  </section>
+
+  <section id="emptyState" class="panel">
+    <p class="emptyCopy">Type a name above to pull its deed. Try your own, a friend's, or something absurd — every one of them has already been sailing.</p>
+  </section>
+
+  <section id="deedWrap" class="hidden">
+
+    <div class="deed" id="deed"><!-- filled by JS --></div>
+
+    <div class="panel" id="buyPanel">
+      <button class="buyBtn permBtn" id="permBtn" type="button">
+        <span class="buyLabel">Own this name forever — Permanent Deed</span>
+        <span class="price">$4.99</span>
+      </button>
+      <button class="buyBtn founderBtn" id="founderBtn" type="button">
+        <span class="buyLabel">Founder Edition <span id="founderNo">#001/500</span></span>
+        <span class="price">$9.99</span>
+      </button>
+      <div class="previewNote">Preview — payments arm at launch. Nothing is charged now.</div>
+      <button class="linkBtn" id="giftBtn" type="button">Gift a deed instead →</button>
+      <div id="giftExplainer" class="explainer hidden">
+        A gifted deed hands this exact Racer No. and its full career record to someone else's name at launch — same certificate, same permanence, plus a short note from you. Good for retiring a racer to a friend, or passing down a name mid hot streak.
+      </div>
+    </div>
+
+    <div class="panel" id="seasonPanel">
+      <h3>Free claims vs. Permanent Deeds</h3>
+      <p>Racing a name for free — over at the <a href="../">main track</a> — holds that name only through the current season. When a season ends, every free claim resets and any name can be picked up new.</p>
+      <p>A Permanent Deed doesn't do that. Once armed, this Racer No. and this name's entire computed career — every heat, past and future — stay assigned to you forever, across every season, whether you ever race again or not.</p>
+    </div>
+
+    <div class="panel" id="shareRow2">
+      <button id="copyLinkBtn" type="button">Copy this deed's link</button>
+      <div class="linkNote">Shareable — <code>/registry/?name=…</code> renders this exact deed for anyone.</div>
+    </div>
+
+  </section>
+
+  <footer>
+    Deeds are a preview product — permanence pitch, no live payments yet.<br>
+    Career data is computed fresh, on your device, from <a href="../">The Grand Migration</a> engine. Nothing here is stored or editable.<br>
+    © 2026 defimagic · The Registry
+  </footer>
+
+</div>
+<div id="toast" role="status"></div>
+<script src="../js/engine.js"></script>
+<script src="registry.js"></script>
+</body>
+</html>

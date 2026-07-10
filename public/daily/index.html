@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Grand Migration — the daily floating race</title>
+<meta name="description" content="Name a racer. It races 400 others down a river that changes every day. Same name, same day, same result — anywhere on Earth. Free, no account.">
+<meta property="og:title" content="The Grand Migration">
+<meta property="og:description" content="The daily floating race. Name yours, race 400 others, prove it in the group chat.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">THE <em>GRAND</em> MIGRATION</div>
+    <div class="division">
+      <button id="skinDuck" type="button">🦆 Duck</button>
+      <button id="skinCapy" type="button">🍊 Capybara</button>
+    </div>
+    <div id="divisionLabel"></div>
+    <div id="divisionTag"></div>
+  </header>
+
+  <!-- ENTER -->
+  <section id="enter" class="panel">
+    <div class="heatChip"><b id="heatNo"></b><span id="heatDate"></span></div>
+    <canvas id="heroSprite" width="120" height="90"></canvas>
+    <div id="challengeBox" class="hidden"></div>
+    <form id="enterForm" autocomplete="off">
+      <input id="nameInput" maxlength="28" placeholder="Name your racer…" aria-label="Racer name">
+      <button type="submit">RACE</button>
+    </form>
+    <div class="fieldNote"><span id="fieldCount">400</span> racers in today's field. One river. One current. No luck you can buy.</div>
+    <div id="careerStrip"></div>
+    <details class="how">
+      <summary>How it works (no tricks)</summary>
+      <p>Every day at 00:00 UTC a new river is generated. Every racer's run is computed from the day plus its name — nothing else. Same name, same day, same finish, on any phone on Earth. That's why a result can be checked by anyone you send it to: they type the name, they see the run.</p>
+      <p>Free to race, no account, no purchase, no prizes of value — points and glory only. Your career lives on your device.</p>
+    </details>
+  </section>
+
+  <!-- RACE -->
+  <section id="race" class="panel hidden">
+    <div id="raceTop"><span id="raceHeat"></span><span id="raceClock">0s</span><span id="livePos"></span></div>
+    <canvas id="river"></canvas>
+    <div id="raceBottom">
+      <div id="ticker">🎙 They're in the water…</div>
+      <button id="speedBtn" type="button">▶ 24×</button>
+      <button id="skipBtn" type="button">Skip ⏭</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="hidden">
+    <div class="panel">
+      <div id="resultHeat"></div>
+      <div id="myCard"></div>
+      <div id="shareRow" class="hidden">
+        <button id="shareBtn" type="button">Challenge friends</button>
+        <button id="copyBtn" type="button">Copy link</button>
+        <button id="cardBtn" type="button">Save card</button>
+      </div>
+      <div id="tomorrowLine"></div>
+      <div class="againRow">
+        <button id="rewatchBtn" type="button">Rewatch heat</button>
+        <button id="againBtn" type="button">Change racer</button>
+      </div>
+    </div>
+    <div id="globalBox" class="panel hidden"></div>
+    <div id="h2hBox" class="panel hidden"></div>
+    <div class="panel">
+      <h3>🏁 Today's podium & top 10</h3>
+      <table class="miniTable"><tbody id="standings"></tbody></table>
+    </div>
+    <div class="panel"><div id="careerBox"></div></div>
+  </section>
+
+  <!-- REAL-WORLD LANE -->
+  <section id="hostPanel" class="panel">
+    <h3>🌍 Run a real one</h3>
+    <p>The Migration's engine also powers physical charity duck races — per-duck results, finish cards and highlight clips for every adopter, not just the winner. If you run a duck race for a charity, Rotary club, or town and want your race sanctioned into the league:</p>
+    <p><a href="mailto:support@defimagic.io?subject=Sanction%20my%20race%20—%20Grand%20Migration">support@defimagic.io</a></p>
+  </section>
+
+  <footer>
+    Free to race, every day. No account. No gambling — entry is free everywhere, always, and prizes are points and glory.<br>
+    © 2026 defimagic · The Grand Migration, Season 0
+  </footer>
+
+</div>
+<div id="toast" role="status"></div>
+<script src="/js/engine.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

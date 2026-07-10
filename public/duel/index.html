@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forfeit Duels — stake something that isn't money</title>
+<meta name="description" content="Name your rival. Pick a forfeit. Race today's river, head-to-head. Loser gets served an official Forfeit Card — no money, just consequences.">
+<meta property="og:title" content="Forfeit Duels">
+<meta property="og:description" content="Head-to-head duck race. Pick a forfeit, race today's river, loser gets served.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/duel.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">FORFEIT <em>DUELS</em></div>
+    <div class="tagline">Stakes without money. Loser answers to the river.</div>
+  </header>
+
+  <!-- SETUP -->
+  <section id="setup" class="panel">
+    <div id="challengeNote" class="hidden"></div>
+
+    <div class="duelNames">
+      <div class="nameCol">
+        <label for="nameA">You</label>
+        <input id="nameA" maxlength="20" placeholder="Your name" autocomplete="off">
+      </div>
+      <div class="vsBadge">VS</div>
+      <div class="nameCol">
+        <label for="nameB">Rival</label>
+        <input id="nameB" maxlength="20" placeholder="Their name" autocomplete="off">
+      </div>
+    </div>
+
+    <h3 class="sectionLabel">Pick the forfeit</h3>
+    <div id="forfeitGrid" class="forfeitGrid"></div>
+
+    <button id="duelBtn" class="wideBtn" type="button" disabled>DUEL ⚔️</button>
+    <div class="fieldNote">Today's river. Same date, same two names, same result — anywhere on Earth.</div>
+
+    <details class="how">
+      <summary>How it works (no tricks)</summary>
+      <p>Every day at 00:00 UTC the river resets. Your duel races only the two of you — nobody else in the field. The finish is computed from the date plus both names, so if your rival opens the same challenge link today, they see the identical race and the identical loser. Nothing to negotiate.</p>
+      <p>Free to duel, no account. The forfeit is on the honor system — the card is your receipt.</p>
+    </details>
+  </section>
+
+  <!-- RACE -->
+  <section id="race" class="panel hidden">
+    <div id="raceTop"><span id="raceLabel"></span><span id="raceClock">0s</span></div>
+    <canvas id="river"></canvas>
+    <div id="raceBottom">
+      <div id="ticker">🎙 They're in the water…</div>
+      <button id="skipBtn" type="button">Skip ⏭</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="hidden">
+    <div class="panel" id="verdictPanel"></div>
+
+    <div class="panel" id="cardPanel">
+      <div class="sectionLabel">The Forfeit Card</div>
+      <div class="summonsWrap">
+        <canvas id="summonsCanvas" width="900" height="1150"></canvas>
+      </div>
+      <div id="shareRow">
+        <button id="downloadBtn" type="button">Save card</button>
+        <button id="copyBtn" type="button">Copy challenge link</button>
+      </div>
+    </div>
+
+    <div class="panel" id="rematchPanel"></div>
+
+    <div class="panel" id="premiumPanel">
+      <h3 class="sectionLabel">Custom Forfeit Cards + Duel History</h3>
+      <p class="dim">Design your own forfeits, keep a running ledger of every duel you've fought, unlock card themes. $2.99.</p>
+      <button class="wideBtn" type="button" disabled>Preview — payments arm at launch</button>
+    </div>
+  </section>
+
+  <footer>
+    Forfeit Duels runs on the same deterministic river as <a href="/">The Grand Migration</a>. No money changes hands here — ever.
+  </footer>
+
+</div>
+<div id="toast"></div>
+
+<script src="/js/engine.js"></script>
+<script src="js/duel.js"></script>
+</body>
+</html>

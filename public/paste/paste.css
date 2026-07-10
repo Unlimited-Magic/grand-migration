@@ -1,0 +1,48 @@
+.pr-heatLine { text-align: center; color: var(--dim); font-size: 13px; letter-spacing: 1px; margin-top: 4px; }
+
+.pr-lede { color: var(--dim); font-size: 14px; line-height: 1.5; margin-bottom: 14px; }
+.pr-lede em { color: var(--accent); font-style: normal; }
+
+.pr-textarea {
+  width: 100%; min-height: 140px; resize: vertical;
+  background: var(--panel2); border: 1px solid #204866; color: var(--ink);
+  border-radius: 10px; padding: 13px 14px; font-size: 15px; line-height: 1.5;
+  font-family: -apple-system, system-ui, "Segoe UI", sans-serif;
+}
+.pr-textarea::placeholder { color: #56718a; }
+
+.pr-count { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 12.5px; color: var(--dim); }
+.pr-warn { color: #ff9f6b; font-weight: 700; }
+
+.pr-raceBtn {
+  width: 100%; margin-top: 14px; background: var(--accent); border: 0; border-radius: 10px;
+  padding: 15px; font-weight: 800; font-size: 16px; cursor: pointer; color: #0a1520;
+}
+.pr-raceBtn:active { transform: translateY(1px); }
+
+.pr-shareRow { display: flex; gap: 8px; margin-top: 14px; }
+.pr-shareRow button {
+  flex: 1; padding: 12px 6px; border-radius: 10px; border: 0; cursor: pointer; font-weight: 700; font-size: 13.5px;
+}
+#shareBtn { background: var(--accent); color: #0a1520; }
+#copyBtn { background: var(--panel2); color: var(--ink); border: 1px solid #204866 !important; }
+.pr-tomorrow { text-align: center; color: var(--dim); font-size: 13px; margin-top: 12px; }
+
+.pr-resultsTable { font-size: 13px; }
+.pr-resultsTable th:nth-child(3), .pr-resultsTable td:nth-child(3),
+.pr-resultsTable th:nth-child(4), .pr-resultsTable td:nth-child(4) { color: var(--dim); white-space: nowrap; }
+.pr-cardBtn {
+  background: var(--panel2); color: var(--ink); border: 1px solid #204866; border-radius: 6px;
+  padding: 5px 9px; font-size: 12px; cursor: pointer; white-space: nowrap;
+}
+.pr-wwBadge { display: inline-block; margin-left: 6px; font-size: 11px; }
+
+.pr-premium { margin-top: 14px; border-color: #3a3220; background: linear-gradient(180deg, var(--panel), #14200f); }
+.pr-premium h3 { font-size: 15px; letter-spacing: 1px; color: var(--accent); margin-bottom: 6px; }
+.pr-premium p { color: var(--dim); font-size: 13px; line-height: 1.5; }
+.pr-price { font-size: 22px; font-weight: 800; margin-top: 10px; }
+.pr-price span { font-size: 13px; color: var(--dim); font-weight: 500; }
+.pr-buyBtn {
+  width: 100%; margin-top: 10px; padding: 13px; border-radius: 10px; border: 1px dashed #5a5030;
+  background: transparent; color: var(--dim); font-weight: 700; font-size: 13.5px; cursor: not-allowed;
+}

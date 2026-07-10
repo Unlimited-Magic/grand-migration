@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paste-a-Race — race any list of names down today's river</title>
+<meta name="description" content="Paste any list of names — classmates, coworkers, a fantasy league, wedding tables — and race them down today's Grand Migration river. Same list, same day, same result, anywhere on Earth. Free.">
+<meta property="og:title" content="Paste-a-Race — The Grand Migration">
+<meta property="og:description" content="Paste a list. Race it. Same day, same river, same result for everyone who checks.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="paste.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">PASTE-<em>A</em>-RACE</div>
+    <div id="heatLine" class="pr-heatLine"></div>
+  </header>
+
+  <!-- PASTE -->
+  <section id="enter" class="panel">
+    <p class="pr-lede">Paste any list of names — classmates, coworkers, your fantasy league, wedding tables — and race <em>only</em> them, no filler field, down today's river.</p>
+    <textarea id="nameBox" class="pr-textarea" placeholder="One name per line, or comma-separated…
+Alex Chen
+Priya Patel
+Jordan Smith
+..." maxlength="8000"></textarea>
+    <div class="pr-count"><span id="countLabel">0 names</span><span id="countWarn" class="pr-warn hidden"></span></div>
+    <button id="raceBtn" class="pr-raceBtn" type="button">RACE THIS LIST 🏁</button>
+    <div class="fieldNote">Up to 200 racers. No filler field — it's only the names you paste, on today's current.</div>
+    <details class="how">
+      <summary>How it works (no tricks)</summary>
+      <p>Every day at 00:00 UTC a new river is generated — new eddies, new current, new rocks. Each racer's run is computed purely from the day plus its name. Same list, same day, same finish order, on any device on Earth. Anyone you send the link to sees the identical race.</p>
+      <p>Free, no account, no filler racers padding the field — just your list against the water.</p>
+    </details>
+  </section>
+
+  <!-- RACE -->
+  <section id="race" class="panel hidden">
+    <div id="raceTop"><span id="raceHeat"></span><span id="raceClock">0s</span><span id="livePos"></span></div>
+    <canvas id="river"></canvas>
+    <div id="raceBottom">
+      <div id="ticker">🎙 They're in the water…</div>
+      <button id="speedBtn" type="button">▶ 24×</button>
+      <button id="skipBtn" type="button">Skip ⏭</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="hidden">
+    <div class="panel">
+      <div id="resultHeat"></div>
+      <div id="shareRow" class="pr-shareRow">
+        <button id="shareBtn" type="button">Share this race</button>
+        <button id="copyBtn" type="button">Copy link</button>
+      </div>
+      <div id="urlWarn" class="pr-warn hidden"></div>
+      <div id="tomorrowLine" class="pr-tomorrow"></div>
+      <div class="againRow">
+        <button id="rewatchBtn" type="button">Rewatch heat</button>
+        <button id="againBtn" type="button">New list</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>🏁 Full results</h3>
+      <table class="miniTable pr-resultsTable">
+        <thead><tr><th>#</th><th>name</th><th>time</th><th>sailed</th><th></th></tr></thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PREMIUM TEASER -->
+  <section class="panel pr-premium">
+    <h3>🏆 Race Night Pro</h3>
+    <p>Your logo on every result card. Up to 2,000 names per race. Built for office pools, wedding seating draws, and league nights.</p>
+    <div class="pr-price">$9.99 <span>/ event</span></div>
+    <button class="pr-buyBtn" type="button" disabled>Preview — payments arm at launch</button>
+  </section>
+
+  <footer>
+    Free to race, every day. No account. No gambling — entry is free, prizes are points and glory.<br>
+    © 2026 defimagic · Paste-a-Race, a Grand Migration lane
+  </footer>
+
+</div>
+<div id="toast" role="status"></div>
+<script src="/js/engine.js"></script>
+<script src="paste.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+.tagline { color: var(--dim); font-size: 13.5px; margin-top: 6px; padding: 0 10px; }
+
+#searchForm { display: flex; gap: 8px; }
+#nameInput {
+  flex: 1; background: var(--panel2); border: 1px solid #204866; color: var(--ink);
+  border-radius: 10px; padding: 13px 14px; font-size: 16px;
+}
+#nameInput::placeholder { color: #56718a; }
+#searchForm button {
+  background: var(--accent); border: 0; border-radius: 10px; padding: 13px 18px;
+  font-weight: 800; font-size: 14px; cursor: pointer; color: #0a1520; white-space: nowrap;
+}
+.fieldNote { color: var(--dim); font-size: 12.5px; margin-top: 10px; text-align: center; }
+
+#emptyState .emptyCopy { color: var(--dim); font-size: 13.5px; text-align: center; line-height: 1.5; }
+
+.hidden { display: none !important; }
+
+/* ---- deed certificate ---- */
+.deed {
+  position: relative;
+  margin-top: 14px;
+  padding: 30px 20px 26px;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  background:
+    radial-gradient(ellipse at top, rgba(255, 212, 71, 0.06), transparent 60%),
+    linear-gradient(180deg, #0e2436, #0a1c2c);
+  box-shadow: inset 0 0 0 5px rgba(255, 212, 71, 0.08);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  overflow: hidden;
+}
+.deed::before, .deed::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(255, 212, 71, 0.35);
+  border-radius: 3px;
+  pointer-events: none;
+}
+.deed::after { inset: 8px; }
+.deedCorner {
+  position: absolute;
+  color: rgba(255, 212, 71, 0.55);
+  font-size: 15px;
+  line-height: 1;
+}
+.deedCorner.tl { top: 12px; left: 14px; }
+.deedCorner.tr { top: 12px; right: 14px; }
+.deedCorner.bl { bottom: 12px; left: 14px; }
+.deedCorner.br { bottom: 12px; right: 14px; }
+
+.deedKicker {
+  letter-spacing: 3px; font-size: 10.5px; color: var(--dim); text-transform: uppercase;
+  font-family: -apple-system, system-ui, sans-serif;
+}
+.racerNo {
+  margin-top: 10px; font-family: -apple-system, system-ui, sans-serif;
+  letter-spacing: 2px; font-size: 12px; color: var(--accent); font-weight: 700;
+}
+.deedName {
+  margin-top: 10px; font-size: 30px; font-weight: 700; font-style: italic;
+  line-height: 1.15; word-break: break-word;
+}
+.deedFlourish {
+  margin: 14px auto; width: 120px; height: 1px; background: rgba(255, 212, 71, 0.4);
+  position: relative;
+}
+.deedFlourish::before {
+  content: "◆"; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+  color: var(--accent); font-size: 10px; background: transparent;
+}
+
+.heatLine { font-family: -apple-system, system-ui, sans-serif; margin-top: 6px; }
+.heatLine .heatDate { color: var(--dim); font-size: 12px; letter-spacing: 1px; }
+.heatPos { font-size: 44px; font-weight: 800; line-height: 1.1; margin-top: 4px; }
+.heatPos .ofN { font-size: 18px; color: var(--dim); font-weight: 600; }
+.heatBeat { color: var(--dim); font-size: 13px; margin-top: 2px; }
+.heatBeat b { color: var(--accent); }
+.heatAward { margin-top: 8px; color: var(--accent); font-size: 12.5px; font-family: -apple-system, system-ui, sans-serif; }
+
+#sparkWrap { margin-top: 18px; font-family: -apple-system, system-ui, sans-serif; }
+#sparkLabel { color: var(--dim); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+#spark { display: block; margin: 0 auto; width: 100%; max-width: 460px; height: 60px; }
+
+.deedStats {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 8px;
+  margin-top: 18px; font-family: -apple-system, system-ui, sans-serif;
+}
+.deedStats div { text-align: center; }
+.deedStats span { font-size: 19px; font-weight: 700; display: block; }
+.deedStats label { font-size: 10px; color: var(--dim); letter-spacing: 1px; text-transform: uppercase; }
+
+.deedFoot {
+  margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255, 212, 71, 0.25);
+  font-size: 11.5px; color: var(--dim); font-style: italic; line-height: 1.5;
+  font-family: -apple-system, system-ui, sans-serif;
+}
+
+/* ---- buy panel ---- */
+.buyBtn {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  border: 1px solid #204866; border-radius: 10px; padding: 14px 16px;
+  font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 10px;
+  background: var(--panel2); color: var(--ink); text-align: left;
+}
+.buyBtn:first-of-type { margin-top: 0; }
+.buyBtn.permBtn { border-color: var(--accent); background: rgba(255, 212, 71, 0.08); }
+.buyBtn .price { color: var(--accent); font-weight: 800; white-space: nowrap; }
+.buyBtn.founderBtn .price { color: var(--ink); opacity: 0.85; }
+.previewNote { text-align: center; color: var(--dim); font-size: 11.5px; margin-top: 10px; }
+.linkBtn {
+  display: block; margin: 14px auto 0; background: none; border: 0; color: var(--accent);
+  font-size: 13px; cursor: pointer; text-decoration: underline;
+}
+.explainer {
+  margin-top: 10px; background: var(--panel2); border-radius: 8px; padding: 12px 14px;
+  color: var(--dim); font-size: 12.5px; line-height: 1.5;
+}
+
+#seasonPanel h3 { font-size: 14px; margin-bottom: 8px; }
+#seasonPanel p { color: var(--dim); font-size: 12.5px; line-height: 1.55; margin-top: 8px; }
+#seasonPanel p a { color: var(--accent); }
+#seasonPanel p:first-of-type { margin-top: 0; }
+
+#shareRow2 { text-align: center; }
+#shareRow2 button {
+  background: var(--panel2); color: var(--ink); border: 1px solid #204866;
+  border-radius: 8px; padding: 10px 16px; font-size: 13px; cursor: pointer; width: 100%;
+}
+.linkNote { margin-top: 8px; color: var(--dim); font-size: 11.5px; }
+.linkNote code { color: var(--ink); }
+
+footer { color: var(--dim); font-size: 11.5px; text-align: center; margin-top: 22px; line-height: 1.6; padding: 0 10px; }
+footer a { color: var(--accent); }
+
+#toast {
+  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--accent); color: #0a1520; font-weight: 700; font-size: 13px;
+  padding: 10px 18px; border-radius: 20px; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }

@@ -3,95 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Grand Migration — the daily floating race</title>
-<meta name="description" content="Name a racer. It races 400 others down a river that changes every day. Same name, same day, same result — anywhere on Earth. Free, no account.">
-<meta property="og:title" content="The Grand Migration">
-<meta property="og:description" content="The daily floating race. Name yours, race 400 others, prove it in the group chat.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
-<link rel="stylesheet" href="css/style.css">
+<title>DUCKRACE — the concept park</title>
+<meta name="description" content="One deterministic racing engine, seven concepts. Race a duck in ten seconds — then explore what it could become.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦆</text></svg>">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .park { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+  a.card { display: block; background: var(--panel); border: 1px solid #16344c; border-radius: 14px; padding: 16px 18px; text-decoration: none; color: var(--ink); transition: border-color .15s, transform .15s; }
+  a.card:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .card h2 { font-size: 17px; margin: 0 0 4px; }
+  .card p { color: var(--dim); font-size: 13.5px; line-height: 1.5; margin: 0 0 8px; }
+  .chips span { display: inline-block; font-size: 11px; letter-spacing: .5px; border-radius: 12px; padding: 3px 10px; margin-right: 6px; }
+  .chips .free { background: #10283e; color: #7fd0a0; }
+  .chips .prem { background: #10283e; color: var(--accent); }
+  .chips .live { background: var(--accent); color: #0a1520; font-weight: 700; }
+  .intro { color: var(--dim); font-size: 14px; text-align: center; line-height: 1.6; margin-top: 8px; }
+</style>
 </head>
 <body>
 <div class="wrap">
-
   <header>
-    <div class="brand">THE <em>GRAND</em> MIGRATION</div>
-    <div class="division">
-      <button id="skinDuck" type="button">🦆 Duck</button>
-      <button id="skinCapy" type="button">🍊 Capybara</button>
-    </div>
-    <div id="divisionLabel"></div>
-    <div id="divisionTag"></div>
+    <div class="brand">DUCK<em>RACE</em></div>
+    <div id="divisionTag" class="intro">One deterministic engine — same name, same day, same result on any device on Earth.<br>Seven concepts built on it. Race first, then wander the park.</div>
   </header>
 
-  <!-- ENTER -->
-  <section id="enter" class="panel">
-    <div class="heatChip"><b id="heatNo"></b><span id="heatDate"></span></div>
-    <canvas id="heroSprite" width="120" height="90"></canvas>
-    <div id="challengeBox" class="hidden"></div>
-    <form id="enterForm" autocomplete="off">
-      <input id="nameInput" maxlength="28" placeholder="Name your racer…" aria-label="Racer name">
-      <button type="submit">RACE</button>
-    </form>
-    <div class="fieldNote"><span id="fieldCount">400</span> racers in today's field. One river. One current. No luck you can buy.</div>
-    <div id="careerStrip"></div>
-    <details class="how">
-      <summary>How it works (no tricks)</summary>
-      <p>Every day at 00:00 UTC a new river is generated. Every racer's run is computed from the day plus its name — nothing else. Same name, same day, same finish, on any phone on Earth. That's why a result can be checked by anyone you send it to: they type the name, they see the run.</p>
-      <p>Free to race, no account, no purchase, no prizes of value — points and glory only. Your career lives on your device.</p>
-    </details>
-  </section>
-
-  <!-- RACE -->
-  <section id="race" class="panel hidden">
-    <div id="raceTop"><span id="raceHeat"></span><span id="raceClock">0s</span><span id="livePos"></span></div>
-    <canvas id="river"></canvas>
-    <div id="raceBottom">
-      <div id="ticker">🎙 They're in the water…</div>
-      <button id="speedBtn" type="button">▶ 24×</button>
-      <button id="skipBtn" type="button">Skip ⏭</button>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section id="results" class="hidden">
-    <div class="panel">
-      <div id="resultHeat"></div>
-      <div id="myCard"></div>
-      <div id="shareRow" class="hidden">
-        <button id="shareBtn" type="button">Challenge friends</button>
-        <button id="copyBtn" type="button">Copy link</button>
-        <button id="cardBtn" type="button">Save card</button>
-      </div>
-      <div id="tomorrowLine"></div>
-      <div class="againRow">
-        <button id="rewatchBtn" type="button">Rewatch heat</button>
-        <button id="againBtn" type="button">Change racer</button>
-      </div>
-    </div>
-    <div id="globalBox" class="panel hidden"></div>
-    <div id="h2hBox" class="panel hidden"></div>
-    <div class="panel">
-      <h3>🏁 Today's podium & top 10</h3>
-      <table class="miniTable"><tbody id="standings"></tbody></table>
-    </div>
-    <div class="panel"><div id="careerBox"></div></div>
-  </section>
-
-  <!-- REAL-WORLD LANE -->
-  <section id="hostPanel" class="panel">
-    <h3>🌍 Run a real one</h3>
-    <p>The Migration's engine also powers physical charity duck races — per-duck results, finish cards and highlight clips for every adopter, not just the winner. If you run a duck race for a charity, Rotary club, or town and want your race sanctioned into the league:</p>
-    <p><a href="mailto:dan.cohen@defimagic.io?subject=Sanction%20my%20race%20—%20Grand%20Migration">dan.cohen@defimagic.io</a></p>
-  </section>
+  <div class="park">
+    <a class="card" href="/daily/">
+      <h2>🏁 The Daily Heat</h2>
+      <p>The live league. Name a racer, race 400 others down today's river, share the card, build a career. Duck and Capybara divisions.</p>
+      <div class="chips"><span class="live">LIVE GAME</span><span class="free">free forever</span><span class="prem">premium: naming · liveries · season pass</span></div>
+    </a>
+    <a class="card" href="/paste/">
+      <h2>📋 Paste-a-Race</h2>
+      <p>Paste any list of names — a classroom, the office, your fantasy league, the wedding seating chart — and get an instant race with a result card for everyone.</p>
+      <div class="chips"><span class="free">free unlimited</span><span class="prem">premium: Race Night Pro $9.99/event</span></div>
+    </a>
+    <a class="card" href="/duel/">
+      <h2>⚔️ Forfeit Duels</h2>
+      <p>Stakes without money. Challenge a friend, pick a forfeit card, race head-to-head — the loser's forfeit is the shareable receipt.</p>
+      <div class="chips"><span class="free">free duels</span><span class="prem">premium: custom forfeits $2.99</span></div>
+    </a>
+    <a class="card" href="/studio/">
+      <h2>🎩 The Studio</h2>
+      <p>Dress your racer properly — hats, monocles, chains, trails, taunts — and it wears the outfit in every race and on every card it shares.</p>
+      <div class="chips"><span class="free">free items by streaks</span><span class="prem">premium: items $1.99–4.99 · pass $9.99</span></div>
+    </a>
+    <a class="card" href="/registry/">
+      <h2>📜 The Registry</h2>
+      <p>Look up any racer's career deed — record, best finish, Distance Sailed. Free claims are seasonal; a Permanent Deed makes a name yours forever.</p>
+      <div class="chips"><span class="free">free seasonal claims</span><span class="prem">premium: deed $4.99 · founder #001–500 $9.99</span></div>
+    </a>
+    <a class="card" href="/charity/">
+      <h2>💛 Fundraiser Generator</h2>
+      <p>A virtual duck race for your cause in ten minutes — donor names become the field, your branding on every card, donations stay on your own rails.</p>
+      <div class="chips"><span class="free">free to 50 ducks</span><span class="prem">premium: branded event $199</span></div>
+    </a>
+    <a class="card" href="/community/">
+      <h2>🤝 Community Divisions</h2>
+      <p>Community vs community team races — congregations, offices, clubs — with giving-streak liveries via ShopToDoGood. Plus the on-chain concept next door.</p>
+      <div class="chips"><span class="free">free team races</span><span class="prem">premium: liveries via giving · <a href="/community/crypto.html" style="color:var(--accent)">NFT concept →</a></span></div>
+    </a>
+  </div>
 
   <footer>
-    Free to race, every day. No account. No gambling — entry is free everywhere, always, and prizes are points and glory.<br>
-    © 2026 defimagic · The Grand Migration, Season 0
+    Free to race, every day. No gambling — entry is free everywhere, always; money only ever buys identity and status.<br>
+    © 2026 defimagic · DUCKRACE
   </footer>
-
 </div>
-<div id="toast" role="status"></div>
-<script src="js/engine.js"></script>
-<script src="js/app.js"></script>
 </body>
 </html>
